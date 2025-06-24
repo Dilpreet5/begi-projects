@@ -2,7 +2,6 @@
 
 import random
 gess_num = random.randint(1,100)
-print(gess_num)
 
 user_input=()
 while gess_num != user_input:
