@@ -1,0 +1,26 @@
+#PEOJECT 1:CALCULATOR 
+
+num1=int(input("Enter 1st number: \n"))
+num2=int(input("Enter 2nd number: \n"))
+
+cal=input("Enter \n :add= addition\n :sub= subtraction\n :div= divtion\n :rem= reminder\n :mul= multiplication\n")
+
+if(cal=="add"):
+    print("\n Calculating...")
+    print("OUTCOME: ",num1+num2)
+    
+elif(cal=="sub"):
+    print("\n Calculating...")
+    print("OUTCOME: ",num1-num2)
+    
+elif(cal=="div"):
+    print("\n Calculating...")
+    
+    print("\nthe division is :")
+    
+    print("OUTCOME: ",num1/num2)
+    remind=(num1%num2)
+    
+elif(cal=="mul"):
+   print("\n Calculating...")
+   print("OUTCOME: ",num1*num2)
