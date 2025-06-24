@@ -1,0 +1,19 @@
+#Guess the Number Game
+
+import random
+gess_num = random.randint(1,100)
+print(gess_num)
+
+user_input=()
+while gess_num != user_input:
+      user_input =int(input("Enter a number 1-100: "))
+      if(user_input>gess_num):
+        print("Lesser number..")
+        
+      elif(user_input<gess_num):
+        print("Higher number..")
+        
+      elif(user_input==gess_num):
+        print("Congratulations your gess is correct: ",user_input)
+        print("THE END")
+        
