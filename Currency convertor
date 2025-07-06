@@ -1,0 +1,280 @@
+# Currency converter
+def dollar():
+    rupee = 85.50
+    aus_dollar = 1.52
+    rubel = 79.30
+    pound = 0.73
+    yen = 144.70
+    dirham = 3.67
+
+    from_currency = input("enter currency to convert into: ")
+    amount = int(input("\nenter amount to convert: "))
+
+    if amount < int("0"):
+        print("\nEnter valid amount")
+    if amount == int("0"):
+        amount = 0
+    if from_currency == "rupee":
+        money = amount * rupee
+        print(money)
+    elif from_currency == "aus":
+        money = amount * aus_dollar
+        print(money)
+    elif from_currency == "rubel":
+        money = amount * rubel
+        print(money)
+    elif from_currency == "pound":
+        money = amount * pound
+        print(money)
+    elif from_currency == "yen":
+        money = amount * yen
+        print(money)
+    elif from_currency == "dirham":
+        money = amount * dirham
+        print(money)
+    else:
+        print("\nEnter valid currnecy")
+
+def aus_dollar():
+    rupee = 55.96
+    dollar = 0.66
+    rubel = 51.50
+    pound = 0.48
+    yen = 94.67
+    dirham = 2.24
+
+    from_currency = input("enter currency to convert into: ")
+    amount = int(input("\nenter amount to convert: "))
+
+    if amount < int("0"):
+        print("\nEnter valid amount")
+    if amount == int("0"):
+        amount = 0
+    if from_currency == "rupee":
+        money = amount * rupee
+        print(money)
+    elif from_currency == "dollar":
+        money = amount * dollar
+        print(money)
+    elif from_currency == "rubel":
+        money = amount * rubel
+        print(money)
+    elif from_currency == "pound":
+        money = amount * pound
+        print(money)
+    elif from_currency == "yen":
+        money = amount * yen
+        print(money)
+    elif from_currency == "dirham":
+        money = amount * dirham
+        print(money)
+    else:
+        print("\nEnter valid currnecy")
+
+def rubels():
+    rupee = 1.09
+    dollar = 0.013
+    aus_dollar = 0.019
+    pound = 0.0093
+    yen = 1.82
+    dirham = 0.047
+
+    from_currency = input("enter currency to convert into: ")
+    amount = int(input("\nenter amount to convert: "))
+
+    if amount < int("0"):
+        print("\nEnter valid amount")
+    if amount == int("0"):
+        amount = 0
+    if from_currency == "rupee":
+        money = amount * rupee
+        print(money)
+    elif from_currency == "dollar":
+        money = amount * dollar
+        print(money)
+    elif from_currency == "aus":
+        money = amount * aus_dollar
+        print(money)
+    elif from_currency == "pound":
+        money = amount * pound
+        print(money)
+    elif from_currency == "yen":
+        money = amount * yen
+        print(money)
+    elif from_currency == "dirham":
+        money = amount * dirham
+        print(money)
+    else:
+        print("\nEnter valid currnecy")
+
+def pounds():
+    rupee = 116.81
+    dollar = 1.37
+    aus_dollar = 2.08
+    rubel = 107.34
+    yen = 196.18
+    dirham = 5.01
+
+    from_currency = input("enter currency to convert into: ")
+    amount = int(input("\nenter amount to convert: "))
+
+    if amount < int("0"):
+        print("\nEnter valid amount")
+    if amount == int("0"):
+        amount = 0
+    if from_currency == "rupee":
+        money = amount * rupee
+        print(money)
+    elif from_currency == "dollar":
+        money = amount * dollar
+        print(money)
+    elif from_currency == "aus":
+        money = amount * aus_dollar
+        print(money)
+    elif from_currency == "rubel":
+        money = amount * rubel
+        print(money)
+    elif from_currency == "yen":
+        money = amount * yen
+        print(money)
+    elif from_currency == "dirham":
+        money = amount * dirham
+        print(money)
+    else:
+        print("\nEnter valid currnecy")
+
+def yens():
+    rupee = 0.59
+    dollar = 0.0069
+    aus_dollar = 0.011
+    rubel = 0.55
+    dirham = 0.026
+    pound = 0.0051
+
+    from_currency = input("enter currency to convert into: ")
+    amount = int(input("\nenter amount to convert: "))
+
+    if amount < int("0"):
+        print("\nEnter valid amount")
+    if amount == int("0"):
+        amount = 0
+    if from_currency == "rupee":
+        money = amount * rupee
+        print(money)
+    elif from_currency == "dollar":
+        money = amount * dollar
+        print(money)
+    elif from_currency == "aus":
+        money = amount * aus_dollar
+        print(money)
+    elif from_currency == "rubel":
+        money = amount * rubel
+        print(money)
+    elif from_currency == "pound":
+        money = amount * pound
+        print(money)
+    elif from_currency == "dirham":
+        money = amount * dirham
+        print(money)
+    else:
+        print("\nEnter valid currnecy")
+
+def rupees():
+    pound = 0.0086
+    dollar = 0.012
+    aus_dollar = 0.018
+    rubel = 0.92
+    yen = 1.68
+    dirham = 0.43
+
+    from_currency = input("enter currency to convert into: ")
+    amount = int(input("\nenter amount to convert: "))
+
+    if amount < int("0"):
+        print("\nEnter valid amount")
+    if amount == int("0"):
+        amount = 0
+    if from_currency == "yen":
+        money = amount * yen
+        print(money)
+    elif from_currency == "dollar":
+        money = amount * dollar
+        print(money)
+    elif from_currency == "aus":
+        money = amount * aus_dollar
+        print(money)
+    elif from_currency == "rubel":
+        money = amount * rubel
+        print(money)
+    elif from_currency == "pound":
+        money = amount * pound
+        print(money)
+    elif from_currency == "dirham":
+        money = amount * dirham
+        print(money)
+    else:
+        print("\nEnter valid currnecy")
+
+def convertors():
+
+    print(
+        "rupee= India\ndollor= usa\naus = australia\nrubel= russia\npound= UK\nyen= japan\n"
+    )
+    cuntry = input("\nSelect the currency to convert : \n")
+
+    if cuntry == "dollar":
+        dollar()
+    elif cuntry == "aus":
+        aus_dollar()
+    elif cuntry == "rubel":
+        rubels()
+    elif cuntry == "pound":
+        pounds()
+    elif cuntry == "rupee":
+        rupees()
+    elif cuntry == "yen":
+        yens()
+    else:
+        print("\nEnter a valid currency...\n")
+
+def all():
+
+    one_tabel = input("\nEnter the currency to see all exchang rates:")
+
+    if one_tabel == "rupee":
+        print(
+            "dollar = 85.28\naus = 56.13\nrubel = 1.08  \npound = 116.61\nyen = 0.59  \ndirham = 23.26"
+        )
+    if one_tabel == "dollar":
+        print(
+            "rupee=85.50\naus = 1.52\nrubel = 79.30\npound = 0.73\nyen = 144.70\ndirham= 3.67"
+        )
+    if one_tabel == "aus":
+        print(
+            "rupee=55.96\ndollar = 0.66\nrubel = 51.50  \npound = 0.48\nyen = 94.67  \ndirham = 2.24"
+        )
+    if one_tabel == "rubels":
+        print(
+            "rupee=1.09\ndollar = 85.28\naus = 0.013\npound = 0.0093\nyen = 1.84\ndirham = 0.013"
+        )
+    if one_tabel == "pounds":
+        print(
+            "rupee=116.81\ndollar = 1.37\naus = 2.08\nrubel = 107.34\nyen = 197.18\ndirham = 5.01"
+        )
+    if one_tabel == "yens":
+        print(
+            "rupee=116.81\ndollar = 1.37\naus = 2.08\nrubel = 107.34\nyen = 197.18\ndirham = 5.01"
+        )
+
+while True:
+    user = input(
+        "Enter convertor to convert currency \nor\nEnter tabel to see all rate of currency\n"
+    )
+    if user == "convertor":
+        convertors()
+    elif user == "tabel":
+        all()
+    elif user == "exit":
+        print("Thank..")
+    else:
+        print("\ninvalid.... ")
