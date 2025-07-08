@@ -1,0 +1,130 @@
+# Expense traker
+# enumerate
+salary = float(input("Enter yout salary:")) 
+print(salary)
+
+def add_expense():
+
+    
+    total = []
+    Category = []
+    discription = []
+    dates = []
+    f_cost = []
+    f_note = []
+    f_time = []
+    t_cost = []
+    t_note = []
+    t_time = []
+    s_cost = []
+    s_note = []
+    s_time = []
+    
+    while True:
+        user = input("\nEnter add, display, or stop: ")
+
+        if user == "add":
+            # every expense
+            expense = float(input("\nEnter your expense: "))
+            total.append(expense)
+            
+            
+            print("\nfood\ntravel\nshopping")
+            # get category
+            category = input("\nEnter the category of expense's:")
+            Category.append(category)
+            # get what is expense about
+            diss = input("\ndescription:")
+            discription.append(diss)
+            # add date of expense
+            date = input("\nEnter date when expense:")
+            dates.append(date)
+            if category=="food":
+                f_cost.append(expense)
+                f_note.append(diss)
+                f_time.append(date)
+                
+            elif category=="travel":
+                t_cost.append(expense)
+                t_note.append(diss)
+                t_time.append(date)
+              
+            elif category=="shopping":
+                s_cost.append(expense)
+                s_note.append(diss)
+                s_time.append(date)
+            
+        elif user == "display":
+
+            display_by = input(
+                "\nTo print all data:all\nTo print by category:category\n"
+            )
+            if display_by == "all":
+                #print all data like ['','']
+                    print("Expenses: ",total)
+                    print("Discription: ", discription)
+                    print("Category: ", Category)
+                    print("Date: ", dates)
+
+            elif display_by == "category":
+                name = input("\nEnter category name: ")
+                
+                if name == "food":
+                    print("\nThis is food expanse: ")
+                    print("Expenses: ", f_cost)
+                    print("Discription: ", f_note)
+       
+                    print("Date: ", f_time)
+                    
+                elif name == "travel":
+                    print("\nThis is travel expanse: ")
+                    print("Expenses: ", t_cost)
+                    print("Discription: ", t_note)
+                    
+                    print("Date: ", t_time)
+                elif name == "shopping":
+                    print("\nThis is shopping expanse: ")
+                    print("Expenses: ", s_cost)
+                    print("Discription: ", s_note)
+              
+                    print("Date: ", s_time)
+                     
+        elif user =="stop":
+             print("\nEnd")
+             break
+             return total  
+#this part is not complet yet 
+def summary(total):
+    
+    #Total Expenses: 240.00
+    #balance:  
+    #Food: 80.00
+    #Transport: 70.00
+    #shopping: 90.00
+    user=input("\nEnter total: for total expenses\nbalance: for remaning balance\n ")
+    sum= 0
+    if user == "balance":
+    
+          print("\nnow it start.... ")
+          sum = sum(total)
+        #   addd = sum(totals)
+          # sums = float(addd)
+          print("\nThe balance is : ", salary - sum)
+    elif user == "total":
+         print("okkkkkkkkk")
+   
+    
+def menu() :
+ 
+ first=[]
+while True:
+    first =input("\nExpense Tracker\n1. Add Expense\n2. View Expenses\n3. Edit Expense\n4. Delete Expense\n5. View Summary\n6. Exit\nEnter choice:") 
+    if first =="1":
+       add_expense()
+    elif first =="2":
+       summary()
+    elif first =="6":
+         print("\nEnd")
+         break
+
+ 
