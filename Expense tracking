@@ -19,11 +19,12 @@ def add_expense():
     s_cost = []
     s_note = []
     s_time = []
+  
     
     while True:
-        user = input("\nEnter add, display, or stop: ")
+        user = input("\n1. add expense\n2. display expense\n3. balance\nEnter choice: ")
 
-        if user == "add":
+        if user == "1":
             # every expense
             expense = float(input("\nEnter your expense: "))
             total.append(expense)
@@ -54,13 +55,14 @@ def add_expense():
                 s_note.append(diss)
                 s_time.append(date)
             
-        elif user == "display":
+        elif user == "2":
 
             display_by = input(
                 "\nTo print all data:all\nTo print by category:category\n"
             )
             if display_by == "all":
                 #print all data like ['','']
+                   
                     print("Expenses: ",total)
                     print("Discription: ", discription)
                     print("Category: ", Category)
@@ -88,33 +90,58 @@ def add_expense():
                     print("Discription: ", s_note)
               
                     print("Date: ", s_time)
-                     
+                    
+        elif user == "3":
+            b_user= input("\n1. total expense \n2. balance \n3. category total \n")
+            if b_user =="1":
+                 b_total = sum(total) 
+                 print("The total expense is:",b_total)
+            if b_user =="2":
+                 sums = sum(total)
+                 balance = salary - sums
+                 print("\nThe remaining balance is: ", balance) 
+            if b_user =="3":
+                   u_category=input("\n1. food total\n2. travel\n3. shopping \nEnter category :")
+                
+                   if u_category == "1":
+                      f_total= sum(f_cost)
+                      print("\nthis is food total cost:", f_total)
+                   if u_category == "2":
+                      t_total= sum(t_cost)
+                      print("\nthis is food total cost:", t_total) 
+                   if u_category == "3":
+                      s_total= sum(s_cost)
+                      print("\nthis is food total cost:", s_total)
+                
         elif user =="stop":
              print("\nEnd")
              break
              return total  
-#this part is not complet yet 
-def summary(total):
+
+
+
+
+
+first=[]
+while True:
+    first =input("\nExpense Tracker\n1. Add Expense\n2. View Expenses\n3. Edit Expense\n4. Delete Expense\n5. View Summary\n6. Exit\nEnter choice:") 
+    if first =="1":
+       add_expense()
+    elif first =="2":
+       summary()
+    elif first =="6":
+         print("\nEnd")
+         break
+
+ 
     
-    #Total Expenses: 240.00
-    #balance:  
-    #Food: 80.00
-    #Transport: 70.00
-    #shopping: 90.00
-    user=input("\nEnter total: for total expenses\nbalance: for remaning balance\n ")
-    sum= 0
-    if user == "balance":
     
-          print("\nnow it start.... ")
-          sum = sum(total)
-        #   addd = sum(totals)
-          # sums = float(addd)
-          print("\nThe balance is : ", salary - sum)
-    elif user == "total":
-         print("okkkkkkkkk")
-   
     
-def menu() :
+    
+    
+    
+    
+
  
  first=[]
 while True:
@@ -127,4 +154,3 @@ while True:
          print("\nEnd")
          break
 
- 
