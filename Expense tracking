@@ -1,156 +1,185 @@
-# Expense traker
-# enumerate
-salary = float(input("Enter yout salary:")) 
-print(salary)
+"""
+Expense Tracker: A command-line tool to manage personal expenses.
+Allows users to input a salary, add expenses in categories (food, travel, shopping),
+set budgets, view expenses, and check remaining balance with budget alerts.
+"""
 
 def add_expense():
+    """
+    Manages expense tracking by allowing users to add expenses, set budgets,
+    display expenses, and check balances. Stores expenses in categorized lists.
 
-    
-    total = []
-    Category = []
-    discription = []
-    dates = []
-    f_cost = []
-    f_note = []
-    f_time = []
-    t_cost = []
-    t_note = []
-    t_time = []
-    s_cost = []
-    s_note = []
-    s_time = []
-  
+    Returns:
+        list: A list of all recorded expenses.
+    """
+    total = []  # List to store all expense amounts
+    Category = []  # List to store expense categories
+    discription = []  # List to store expense descriptions
+    dates = []  # List to store expense dates
+    f_cost = []  # Food expenses
+    f_note = []  # Food descriptions
+    f_time = []  # Food dates
+    t_cost = []  # Travel expenses
+    t_note = []  # Travel descriptions
+    t_time = []  # Travel dates
+    s_cost = []  # Shopping expenses
+    s_note = []  # Shopping descriptions
+    s_time = []  # Shopping dates
+    m_budget = 0.0  # Monthly budget
+    f_budget = 0.0  # Food budget
+    t_budget = 0.0  # Travel budget
+    s_budget = 0.0  # Shopping budget
     
     while True:
-        user = input("\n1. add expense\n2. display expense\n3. balance\nEnter choice: ")
+        # Display menu and capture user choice
+        user = input("\n1. Add expense\n2. Set budget\n3. Display expenses\n4. Check balance\n5. Exit\nEnter choice: ")
 
         if user == "1":
-            # every expense
-            expense = float(input("\nEnter your expense: "))
-            total.append(expense)
-            
-            
-            print("\nfood\ntravel\nshopping")
-            # get category
-            category = input("\nEnter the category of expense's:")
-            Category.append(category)
-            # get what is expense about
-            diss = input("\ndescription:")
-            discription.append(diss)
-            # add date of expense
-            date = input("\nEnter date when expense:")
-            dates.append(date)
-            if category=="food":
-                f_cost.append(expense)
-                f_note.append(diss)
-                f_time.append(date)
+            try:
+                # Add a new expense
+                expense = float(input("\nEnter expense amount: "))
+                total.append(expense)
+                print("\nCategories: food, travel, shopping")
+                category = input("\nEnter expense category: ").lower()
+                Category.append(category)
+                diss = input("\nDescription: ")
+                discription.append(diss)
+                date = input("\nEnter date (e.g., YYYY-MM-DD): ")
+                dates.append(date)
                 
-            elif category=="travel":
-                t_cost.append(expense)
-                t_note.append(diss)
-                t_time.append(date)
-              
-            elif category=="shopping":
-                s_cost.append(expense)
-                s_note.append(diss)
-                s_time.append(date)
-            
+                # Categorize expense
+                if category == "food":
+                    f_cost.append(expense)
+                    f_note.append(diss)
+                    f_time.append(date)
+                elif category == "travel":
+                    t_cost.append(expense)
+                    t_note.append(diss)
+                    t_time.append(date)
+                elif category == "shopping":
+                    s_cost.append(expense)
+                    s_note.append(diss)
+                    s_time.append(date)
+                else:
+                    print("\nInvalid category! Expense recorded but not categorized.")
+            except ValueError:
+                print("\nInvalid input! Please enter a numeric value for expense.")
+
         elif user == "2":
+            # Set budgets
+            budget = input("\n1. Monthly budget\n2. Category budget\n3. Exit\nSelect: ")
+            if budget == "1":
+                try:
+                    m_budget = float(input("\nSet monthly budget: "))
+                except ValueError:
+                    print("\nInvalid input! Please enter a numeric value.")
+            elif budget == "2":
+                c_budget = input("\nSelect category:\n1. Food\n2. Travel\n3. Shopping\n4. Exit\n")
+                try:
+                    if c_budget == "1":
+                        f_budget = float(input("\nSet food monthly budget: "))
+                    elif c_budget == "2":
+                        t_budget = float(input("\nSet travel monthly budget: "))
+                    elif c_budget == "3":
+                        s_budget = float(input("\nSet shopping monthly budget: "))
+                    elif c_budget == "4":
+                        continue
+                    else:
+                        print("\nInvalid category!")
+                except ValueError:
+                    print("\nInvalid input! Please enter a numeric value.")
+            elif budget == "3":
+                print("\nBudget setting completed...")
+                continue
+            else:
+                print("\nInvalid option!")
 
-            display_by = input(
-                "\nTo print all data:all\nTo print by category:category\n"
-            )
-            if display_by == "all":
-                #print all data like ['','']
-                   
-                    print("Expenses: ",total)
-                    print("Discription: ", discription)
-                    print("Category: ", Category)
-                    print("Date: ", dates)
-
-            elif display_by == "category":
-                name = input("\nEnter category name: ")
-                
-                if name == "food":
-                    print("\nThis is food expanse: ")
-                    print("Expenses: ", f_cost)
-                    print("Discription: ", f_note)
-       
-                    print("Date: ", f_time)
-                    
-                elif name == "travel":
-                    print("\nThis is travel expanse: ")
-                    print("Expenses: ", t_cost)
-                    print("Discription: ", t_note)
-                    
-                    print("Date: ", t_time)
-                elif name == "shopping":
-                    print("\nThis is shopping expanse: ")
-                    print("Expenses: ", s_cost)
-                    print("Discription: ", s_note)
-              
-                    print("Date: ", s_time)
-                    
         elif user == "3":
-            b_user= input("\n1. total expense \n2. balance \n3. category total \n")
-            if b_user =="1":
-                 b_total = sum(total) 
-                 print("The total expense is:",b_total)
-            if b_user =="2":
-                 sums = sum(total)
-                 balance = salary - sums
-                 print("\nThe remaining balance is: ", balance) 
-            if b_user =="3":
-                   u_category=input("\n1. food total\n2. travel\n3. shopping \nEnter category :")
-                
-                   if u_category == "1":
-                      f_total= sum(f_cost)
-                      print("\nthis is food total cost:", f_total)
-                   if u_category == "2":
-                      t_total= sum(t_cost)
-                      print("\nthis is food total cost:", t_total) 
-                   if u_category == "3":
-                      s_total= sum(s_cost)
-                      print("\nthis is food total cost:", s_total)
-                
-        elif user =="stop":
-             print("\nEnd")
-             break
-             return total  
+            # Display expenses
+            display_by = input("\nTo print all data: all\nTo print by category: category\n").lower()
+            if display_by == "all":
+                print("\nAll Expenses:")
+                print("Amounts: ", total)
+                print("Descriptions: ", discription)
+                print("Categories: ", Category)
+                print("Dates: ", dates)
+            elif display_by == "category":
+                name = input("\nEnter category (food, travel, shopping): ").lower()
+                if name == "food":
+                    print("\nFood Expenses:")
+                    print("Amounts: ", f_cost)
+                    print("Descriptions: ", f_note)
+                    print("Dates: ", f_time)
+                elif name == "travel":
+                    print("\nTravel Expenses:")
+                    print("Amounts: ", t_cost)
+                    print("Descriptions: ", t_note)
+                    print("Dates: ", t_time)
+                elif name == "shopping":
+                    print("\nShopping Expenses:")
+                    print("Amounts: ", s_cost)
+                    print("Descriptions: ", s_note)
+                    print("Dates: ", s_time)
+                else:
+                    print("\nInvalid category!")
 
+        elif user == "4":
+            # Check balance and totals
+            b_user = input("\n1. Total expenses\n2. Remaining balance\n3. Category total\n")
+            if b_user == "1":
+                b_total = sum(total)
+                print("\nTotal expenses:", b_total)
+                if m_budget > 0 and b_total > m_budget:
+                    print("Warning: You have exceeded your monthly budget!")
+            elif b_user == "2":
+                sums = sum(total)
+                balance = salary - sums
+                print("\nRemaining balance:", balance)
+                if m_budget > 0 and sums > m_budget:
+                    print("Warning: You have exceeded your monthly budget!")
+            elif b_user == "3":
+                u_category = input("\n1. Food total\n2. Travel total\n3. Shopping total\nEnter category: ")
+                if u_category == "1":
+                    f_total = sum(f_cost)
+                    print("\nFood total cost:", f_total)
+                    if f_budget > 0 and f_total > f_budget:
+                        print("Warning: You have exceeded your food budget!")
+                elif u_category == "2":
+                    t_total = sum(t_cost)
+                    print("\nTravel total cost:", t_total)
+                    if t_budget > 0 and t_total > t_budget:
+                        print("Warning: You have exceeded your travel budget!")
+                elif u_category == "3":
+                    s_total = sum(s_cost)
+                    print("\nShopping total cost:", s_total)
+                    if s_budget > 0 and s_total > s_budget:
+                        print("Warning: You have exceeded your shopping budget!")
+                else:
+                    print("\nInvalid category!")
+            else:
+                print("\nInvalid option!")
 
+        elif user == "5":
+            print("\nExiting expense tracker...")
+            return total  # Return total expenses and exit
+        else:
+            print("\nInvalid choice! Please select a valid option.")
 
-
-
-first=[]
+# Main program
 while True:
-    first =input("\nExpense Tracker\n1. Add Expense\n2. View Expenses\n3. Edit Expense\n4. Delete Expense\n5. View Summary\n6. Exit\nEnter choice:") 
-    if first =="1":
-       add_expense()
-    elif first =="2":
-       summary()
-    elif first =="6":
-         print("\nEnd")
-         break
+    try:
+        salary = float(input("Enter your salary: "))
+        print("Salary entered:", salary)
+        break
+    except ValueError:
+        print("Invalid input! Please enter a numeric value for salary.")
 
- 
-    
-    
-    
-    
-    
-    
-    
-
- 
- first=[]
 while True:
-    first =input("\nExpense Tracker\n1. Add Expense\n2. View Expenses\n3. Edit Expense\n4. Delete Expense\n5. View Summary\n6. Exit\nEnter choice:") 
-    if first =="1":
-       add_expense()
-    elif first =="2":
-       summary()
-    elif first =="6":
-         print("\nEnd")
-         break
-
+    choice = input("\nExpense Tracker\n1. Add expense\n2. Exit\nEnter choice: ")
+    if choice == "1":
+        total = add_expense()  # Run expense tracker
+    elif choice == "2":
+        print("\nProgram ended.")
+        break
+    else:
+        print("\nInvalid choice! Please select 1 or 2.")
