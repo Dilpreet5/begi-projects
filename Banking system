@@ -1,0 +1,171 @@
+import json
+import random
+
+
+acc_type= None
+
+global acc_balance 
+
+
+def info():
+
+      
+     acc_info = None     
+     in_username = None
+     global user_name
+     user_name = []
+     in_password = None
+     global password
+     password = []
+     while True:
+         user=input("\n1. Create Account\n2. Login\n3. Admin Login\n4. Exit\nEnter choice:")
+         print("\n\t WELLCOME TO PYBANKING.\n")
+         
+
+         if user == "1":
+                  acc_type = None
+                  
+                  #type of accounts 
+                  acc_type=input("\nWhich account you want to open\n(1.Saving, 2.Current,3. fixed deposit, 4.help: )")
+                  if acc_type =="1":               
+                     print("\nGreat now you can setup your savings account ")
+                     
+                     #creating account 
+                     user_name = input("\nSet user name :")
+                     password = input("\nSet password : ")
+                     print("\n processing.... ")
+                     acc_num= random.randint(1000,9000)
+                     print_detail=input("\nIf you want to print accounts detail \nenter yes or no: ")
+                     
+                     if print_detail =="yes":                      
+                        print(f"\nHere is your account details :\nUsername:{user_name}\nPassword : {password}\nAccount Number :{acc_num} ")
+                        break
+                     else:
+                       print("\nEnd")
+          
+        
+                       
+                  elif acc_type =="2":
+                     print("\nGreat now you can setup your currents account ")
+                     user_name = input("\nSet user name :")
+                     password = input("\nSet password : ")
+                     print("\n processing.... ")
+                     acc_num= random.randint(1000,9000)
+                     print_detail=input("\nIf you want to print accounts detail \nenter yes or no: ")
+                     
+                     if print_detail =="yes":                      
+                        print(f"\nHere is your account details :\nUsername:{user_name}\nPassword : {password}\nAccount Number :{acc_num} ")
+                        break 
+                     else:
+                       print("\nEnd")
+                       
+                  elif acc_type =="3":
+                     print("\nGreat now you can setup your fixed deposit 'FD' ")
+                     user_name = input("\nSet user name :")
+                     password = input("\nSet password : ")
+                     print("\n processing.... ")
+                     acc_num= random.randint(1000,9000)
+                     print_detail=input("\nIf you want to print accounts detail \nenter yes or no: ")
+                     
+                     if print_detail =="yes":                      
+                        print(f"\nHere is your account details :\nUsername:{user_name}\nPassword : {password}\nAccount Number :{acc_num} ")
+                        break
+                     else:
+                            break 
+                       
+             
+                  elif acc_type =="4":
+                          
+                        acc_info=input("\ninformation \n1. saving \n2. current\n3. fd\n4. Exit ")
+                      
+                  if acc_info =="1":
+                              print("\n 1. SAVING ACCOUNT ")
+                              print("\n-A Savings Account is ideal for storing money while earning a small amount of interest over time. ")
+                              print("\n\t-Features:\n\t*Earns 4% annual interest, calculated and applied monthly.\n\t*No minimum balance required.\n\t*Suitable for regular transacts like deposits withdrawals.\n\t*Interest helps your savings grow over time.")
+                              print("\n=== End of Help ===")
+                              break
+                  elif acc_info =="2": 
+                                 print("\n2. Current Account")
+                                 print("\n- A Current Account is designed for frequent transactions with no interest earned.\n\t- Features:")
+                                 print("\n\t* No interest on the balance.\n\t* Allows overdrafts up to a limit (e.g., $1000) with repayment required.\n\t* Ideal for business or high-frequency transactions.\n\t* No restrictions on transaction frequency.")
+                                 print("\n=== End of Help ===")
+                                 break
+                  elif acc_info =="3":
+                                print("\n3. Fixed Deposit")
+                                print("\n - A Fixed Deposit locks your money for a chosen period to earn higher interest.\n\t- Features:")
+                                print("\n\n* Earns 6% annual interest, higher than a Savings Account.\n\t* Funds locked for a fixed term (e.g., 1, 3, or 5 years).\n\t* Early withdrawal may incur a penalty or not be allowed.\n\t* Best for long-term savings with guaranteed returns.")
+                                print("\n=== End of Help ===")
+                                break
+                   
+                               
+                  #login page
+         if user == "2":
+            in_username = input("\nEnter your username : ")
+            in_password = input("\nEnter your password : ")
+    
+            if in_username == user_name and in_password == password:
+               print("\nLogin Successfully... ")
+            else:
+                  if in_username != user_name and in_password != password:
+                     print("\nInvalid username and password!")
+                  elif in_username != user_name:
+                     print("\nInvalid username!")
+                  elif in_password != password:
+                     print("\nInvalid password!")
+         elif acc_info =="4":
+                   print("\nThanks to visit PYbank")
+                   print("\nEnd")
+                                      
+                       
+                                                
+                                                
+                                                
+def transacts():
+    
+       global acc_balance 
+       acc_balance = 500
+       acc_num = None
+       in_acc_num = None
+       credit = 0
+       debited = 0
+       
+       while True:
+                 transact_user=input("\n1. widhrowal \n2. Deposit \n3. Check balance \n4. Exit\nEnter choice:")
+    
+    #widhrowal 
+                 if transact_user =="1":
+                    debited=float(input("\nEnter the amount to widhrowal:"))#debited in context from bank                 
+                    acc_balance -=debited
+                    print("\nYour remaining balance is : ", acc_balance)
+              
+              #deposit 
+                 if transact_user =="2":
+                       credit =float(input("\nEnter the amount to deposit :"))#credit in context from bank
+                       
+         
+                       acc_balance += credit 
+                       print("\nYour bank balance is: ", acc_balance)
+                 
+
+# check balances 
+                 if transact_user == "3":
+                   print("\n Your bank. balance is : ",acc_balance)
+                 break 
+#Exit
+                 if transact_user == "4":
+                   print("\nThanku for visiting PYBANK ... ")
+          
+          
+          
+ #celling function 
+while True:
+         home_user=input("\n Select the option \n1. account info \n2. transaction \n3. Exit \n")
+         if home_user =="1":
+           info()
+         if home_user =="2":
+           transacts()
+         if home_user =="3":
+           break
+           
+           
+           
